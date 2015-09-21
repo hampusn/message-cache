@@ -8,5 +8,6 @@ gem 'grape'
 
 gem 'pg'
 gem 'activerecord'
+gem 'bcrypt'
 
 gem 'puma'
