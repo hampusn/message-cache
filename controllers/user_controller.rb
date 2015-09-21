@@ -1,7 +1,5 @@
 # User Controller
 
-require 'sinatra/json'
-
 include Hampusn::MessageCache::Models
 
 module Hampusn
