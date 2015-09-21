@@ -1,4 +1,4 @@
-# Messages Controller
+# Messages Resource
 
 require 'grape'
 require 'json'
@@ -7,8 +7,8 @@ include Hampusn::MessageCache::Models
 
 module Hampusn
   module MessageCache
-    module Controllers
-      class MessagesController < Grape::API
+    module API
+      class Messages < Grape::API
 
         format :json
 
