@@ -8,7 +8,7 @@ module Hampusn
   module MessageCache
     class App < Sinatra::Base
 
-      # use Hampusn::MessageCache::Controllers:: ...
+      use Hampusn::MessageCache::Controllers::UserController
 
       get "/" do
         "MessageCache"
