@@ -29,6 +29,7 @@ module Hampusn
           user.email = params[:email]
           user.password = password
           user.salt = salt
+          user.key = ''
 
           user.save
 
