@@ -7,7 +7,7 @@ module Hampusn
     module Controllers
       class UserController < Sinatra::Base
 
-        # ...
+        helpers Hampusn::MessageCache::Helpers::UserHelpers
 
       end
     end
