@@ -17,6 +17,10 @@ module Hampusn
           hashed_password
         end
 
+        def password_hash_matches?(password, salt, hashed_password)
+          hashed_password == generate_password_hash(password, salt)
+        end
+
       end
     end
   end
