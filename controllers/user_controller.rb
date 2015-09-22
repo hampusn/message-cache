@@ -13,11 +13,22 @@ module Hampusn
           # Handle authentication
         end
 
-        post '/register' do
-          # Handle register
+        post '/user/register' do
+          
+          salt = generate_new_salt
+          password = generate_password_hash params[:password], salt
+
+          user = User.new
+
+          user.username = params[:username]
+          user.email = params[:email]
+          user.password = password
+          user.salt = salt
+
+          user.save
         end
 
-        post '/reset-password' do
+        post '/user/reset-password' do
           # ...
         end
 

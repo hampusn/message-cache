@@ -5,6 +5,7 @@ require 'dotenv'
 Dotenv.load
 
 Dir.glob("models/*.rb").each { |r| require_relative r }
+Dir.glob("helpers/*.rb").each { |r| require_relative r }
 Dir.glob("controllers/*.rb").each { |r| require_relative r }
 
 module Hampusn
