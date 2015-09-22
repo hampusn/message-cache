@@ -9,6 +9,18 @@ module Hampusn
 
         helpers Hampusn::MessageCache::Helpers::UserHelpers
 
+        post '/user/login' do
+          # Handle authentication
+        end
+
+        post '/register' do
+          # Handle register
+        end
+
+        post '/reset-password'
+          # ...
+        end
+
       end
     end
   end
