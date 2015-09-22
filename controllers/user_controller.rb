@@ -17,7 +17,7 @@ module Hampusn
           # Handle register
         end
 
-        post '/reset-password'
+        post '/reset-password' do
           # ...
         end
 
