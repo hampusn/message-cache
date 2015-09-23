@@ -14,7 +14,7 @@ module Hampusn
 
         helpers do
           def authenticate!
-            true
+            error!('401 Unauthorized', 401) unless @api_user
           end
         end
 
@@ -22,7 +22,20 @@ module Hampusn
           
           desc "Return a list messages."
           get :latest do
+            authenticate!
+            
             Message.limit(20)
+          end
+
+          post do
+            authenticate!
+
+            message = Message.new
+
+            message.user_id = @api_user.id
+            message.message = params[:message]
+
+            message.save
           end
 
         end
