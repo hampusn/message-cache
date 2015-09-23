@@ -12,15 +12,7 @@ module Hampusn
 
         format :json
 
-        helpers do
-          def authenticate!
-            error!('401 Unauthorized', 401) unless @api_user
-          end
-
-          def api_params
-            @api_params ||= declared(params) # , include_missing: false
-          end
-        end
+        helpers Hampusn::MessageCache::Helpers::APIHelpers
 
         resource :messages do
           
@@ -32,7 +24,7 @@ module Hampusn
             authenticate!
 
             messages = Message.limit(api_params[:count])
-            
+
             {results: messages, params: api_params}
           end
 

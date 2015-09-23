@@ -21,6 +21,10 @@ module Hampusn
           hashed_password == generate_password_hash(password, salt)
         end
 
+        def authenticate!
+          error!('401 Unauthorized', 401) unless @api_user
+        end
+
       end
     end
   end
