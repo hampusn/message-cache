@@ -7,7 +7,7 @@ Dir.glob("api/*.rb").each { |r| require_relative r }
 
 module Hampusn
   module MessageCache
-    class API_Base < Grape::API
+    class APIBase < Grape::API
       
       helpers Hampusn::MessageCache::Helpers::UserHelpers
 
