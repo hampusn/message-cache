@@ -23,7 +23,7 @@ module Hampusn
           get :latest do
             authenticate!
 
-            messages = Message.limit(api_params[:count])
+            messages = Message.order(created_at: :desc).limit(api_params[:count])
 
             {results: messages, params: api_params}
           end
