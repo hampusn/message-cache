@@ -23,7 +23,7 @@ module Hampusn
           get do
             authenticate!
 
-            messages = Message.order(created_at: :desc).limit(api_params[:count])
+            messages = Message.where(user_id: @api_user.id).order(created_at: :desc).limit(api_params[:count])
 
             {results: messages, params: api_params}
           end
