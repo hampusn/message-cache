@@ -16,15 +16,24 @@ module Hampusn
           def authenticate!
             error!('401 Unauthorized', 401) unless @api_user
           end
+
+          def api_params
+            @api_params ||= declared(params) # , include_missing: false
+          end
         end
 
         resource :messages do
           
           desc "Return a list messages."
+          params do
+            optional :count, type: Integer, default: 10, values: 1..20
+          end
           get :latest do
             authenticate!
+
+            messages = Message.limit(api_params[:count])
             
-            Message.limit(20)
+            {results: messages, params: api_params}
           end
 
           post do
