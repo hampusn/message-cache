@@ -20,7 +20,7 @@ module Hampusn
           params do
             optional :count, type: Integer, default: 10, values: 1..20
           end
-          get :latest do
+          get do
             authenticate!
 
             messages = Message.order(created_at: :desc).limit(api_params[:count])
