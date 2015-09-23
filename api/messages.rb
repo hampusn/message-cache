@@ -15,6 +15,14 @@ module Hampusn
         helpers Hampusn::MessageCache::Helpers::APIHelpers
 
         resource :messages do
+          before do
+            if route.route_method == 'POST' && route.route_path == '/messages(.json)'
+              # Normalize params from different sources so they can be inserted into 
+              # messages table.
+
+              # params[:message] = params[:text]
+            end
+          end
           
           desc "Return a list messages."
           params do
