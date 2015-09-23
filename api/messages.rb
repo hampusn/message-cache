@@ -28,13 +28,19 @@ module Hampusn
             {results: messages, params: api_params}
           end
 
+          desc "Create a new message."
+          params do
+            requires :message, type: String, default: ''
+            optional :meta, type: Hash, default: {}
+          end
           post do
             authenticate!
 
             message = Message.new
 
             message.user_id = @api_user.id
-            message.message = params[:message]
+            message.message = api_params[:message]
+            message.meta = api_params[:meta]
 
             message.save
           end
