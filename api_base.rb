@@ -14,7 +14,15 @@ module Hampusn
       http_basic do |username, key|
         user = User.find_by username: username
 
-        user && !!user.key && user.key == key
+        authenticated = user && !!user.key && user.key == key
+
+        if authenticated
+          @api_user = user
+        else
+          @api_user = false
+        end
+
+        authenticated
       end
 
       mount Hampusn::MessageCache::API::Messages
