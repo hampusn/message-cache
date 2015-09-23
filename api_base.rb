@@ -11,10 +11,10 @@ module Hampusn
       
       helpers Hampusn::MessageCache::Helpers::UserHelpers
 
-      http_basic do |username, password|
+      http_basic do |username, key|
         user = User.find_by username: username
 
-        user && password_hash_matches?(password, user.salt, user.password)
+        user && !!user.key && user.key == key
       end
 
       mount Hampusn::MessageCache::API::Messages
