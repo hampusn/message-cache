@@ -13,6 +13,11 @@ module Hampusn
           # Handle authentication
         end
 
+        get '/user/register' do
+          # Register view with form
+          "Register"
+        end
+
         post '/user/register' do
           
           salt = generate_new_salt
@@ -24,8 +29,11 @@ module Hampusn
           user.email = params[:email]
           user.password = password
           user.salt = salt
+          user.key = params[:key]
 
           user.save
+
+          redirect '/user/register'
         end
 
         post '/user/reset-password' do

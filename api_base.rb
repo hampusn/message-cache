@@ -7,14 +7,22 @@ Dir.glob("api/*.rb").each { |r| require_relative r }
 
 module Hampusn
   module MessageCache
-    class API_Base < Grape::API
+    class APIBase < Grape::API
       
       helpers Hampusn::MessageCache::Helpers::UserHelpers
 
-      http_basic do |username, password|
+      http_basic do |username, key|
         user = User.find_by username: username
 
-        user && password_hash_matches?(password, user.salt, user.password)
+        authenticated = user && !!user.key && user.key == key
+
+        if authenticated
+          @api_user = user
+        else
+          @api_user = false
+        end
+
+        authenticated
       end
 
       mount Hampusn::MessageCache::API::Messages
