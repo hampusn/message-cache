@@ -68,7 +68,7 @@ module Hampusn
 
             messages = Message.where(user_id: @api_user.id).order(created_at: :desc).limit(api_params[:count])
 
-            {results: messages, params: api_params}
+            present messages, with: Entities::Message
           end
 
           desc "Create a new message."

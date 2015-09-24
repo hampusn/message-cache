@@ -1,9 +1,11 @@
 require 'grape'
+require 'grape-entity'
 require 'active_record'
 
 Dir.glob("models/*.rb").each { |r| require_relative r }
 Dir.glob("helpers/*.rb").each { |r| require_relative r }
 Dir.glob("api/*.rb").each { |r| require_relative r }
+Dir.glob("api/entities/*.rb").each { |r| require_relative r }
 
 module Hampusn
   module MessageCache
