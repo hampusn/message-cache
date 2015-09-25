@@ -9,22 +9,21 @@ module Hampusn
   module MessageCache
     module API
       class Messages < Grape::API
-
         format :json
 
         helpers Hampusn::MessageCache::Helpers::APIHelpers
 
+        # /messages
+        # Resource for messages.
         resource :messages do
           before do
             if route.route_method == 'POST' && route.route_path == '/messages(.json)'
               # Normalize params from different sources so they can be inserted into 
               # messages table.
+              # 
+              # See Hampusn::MessageCache::API::Normalizers::GenericNormalizer for an example.
               
-              # The main message text should be stored under the key 'message'. 
-              # The rest of the data should be placed in a hash/array under the key 'meta'.
-
               normalizer_name = params[:normalizer]
-
               normalizer = get_normalizer(normalizer_name)
 
               # Couldn't pass params directly into normalizer.normalize
