@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923105834) do
+ActiveRecord::Schema.define(version: 20150926115632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "message_metas", force: :cascade do |t|
+    t.integer  "message_id"
+    t.text     "key"
+    t.text     "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "message_metas", ["message_id"], name: "index_message_metas_on_message_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.text     "message"
