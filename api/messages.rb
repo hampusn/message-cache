@@ -57,7 +57,6 @@ module Hampusn
 
             message.user_id = @api_user.id
             message.message = api_params[:message]
-            message.meta = api_params[:meta]
 
             message.save
 
