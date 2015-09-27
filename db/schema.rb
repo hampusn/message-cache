@@ -46,4 +46,5 @@ ActiveRecord::Schema.define(version: 20150926115632) do
     t.string   "key"
   end
 
+  add_foreign_key "message_metas", "messages"
 end
