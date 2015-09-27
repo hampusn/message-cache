@@ -60,6 +60,12 @@ module Hampusn
             message.meta = api_params[:meta]
 
             message.save
+
+            api_params[:meta].each do |key, value|
+              message.message_metas.create(key: key, value: value)
+            end
+
+            present message, with: Entities::Message
           end
 
         end
