@@ -1,7 +1,7 @@
 class CreateMessageMetas < ActiveRecord::Migration
   def up
     create_table :message_metas do |t|
-      t.references :message, index: true
+      t.references :message, index: true, foreign_key: true
       t.text :key
       t.text :value
 
