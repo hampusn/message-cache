@@ -6,6 +6,7 @@ gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 
 gem 'grape'
+gem 'grape-entity'
 
 gem 'pg'
 gem 'activerecord'
