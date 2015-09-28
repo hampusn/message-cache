@@ -8,7 +8,6 @@ module Hampusn
       class Message < ActiveRecord::Base
         has_many :message_metas, dependent: :destroy
         belongs_to :user
-        serialize :meta
       end
     end
   end
