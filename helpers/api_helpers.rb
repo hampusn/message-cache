@@ -16,11 +16,15 @@ module Hampusn
           return false
         end
 
+        def allowed_normalizer?(normalizer_name)
+          ['elks', 'slack'].include? normalizer_name
+        end
+
         def get_normalizer(normalizer_name)
           normalizer = Hampusn::MessageCache::API::Normalizers::GenericNormalizer
 
           # Bail early if normalizer_name is not in the "whitelist" array.
-          return normalizer unless ['elks', 'slack'].include? normalizer_name
+          return normalizer unless allowed_normalizer? normalizer_name
 
           normalizer_name = "Hampusn::MessageCache::API::Normalizers::" + normalizer_name.capitalize + 'Normalizer'
 

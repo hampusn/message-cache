@@ -30,6 +30,15 @@ module Hampusn
               # This trick seems to work though, no clue why
               p = params
               params = normalizer.normalize(p)
+
+              # Add the normalizer to the meta hash so it will later 
+              # be saved as a MessageMeta.
+              if allowed_normalizer? normalizer_name
+                params[:meta][:normalizer] = normalizer_name
+              else
+                params[:meta] ||= {}
+                params[:meta][:normalizer] = 'generic'
+              end
             end
           end
           
