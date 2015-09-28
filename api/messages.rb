@@ -58,10 +58,12 @@ module Hampusn
             message.user_id = @api_user.id
             message.message = api_params[:message]
 
-            message.save
-
             api_params[:meta].each do |key, value|
-              message.message_metas.create(key: key, value: value)
+              message.message_metas.build(key: key, value: value)
+            end
+
+            Message.transaction do
+              message.save
             end
 
             present message, with: Entities::Message
