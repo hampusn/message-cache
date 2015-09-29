@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927144730) do
+ActiveRecord::Schema.define(version: 20150929110140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(version: 20150927144730) do
     t.string   "email"
     t.string   "password"
     t.string   "salt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "key"
+    t.boolean  "activated",  default: true
   end
 
   add_foreign_key "message_metas", "messages"
