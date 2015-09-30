@@ -45,6 +45,7 @@ module Hampusn
           desc "Return a list messages."
           params do
             optional :count, type: Integer, default: 10, values: 1..20
+            optional :meta, type: Hash
           end
           get do
             authenticate!
