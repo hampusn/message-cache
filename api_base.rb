@@ -17,7 +17,7 @@ module Hampusn
       http_basic do |username, key|
         user = User.find_by username: username
 
-        authenticated = user && !!user.key && user.key == key
+        authenticated = user && !!user.key && user.key == key && user.activated
 
         if authenticated
           @api_user = user
