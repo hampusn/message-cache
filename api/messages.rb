@@ -50,7 +50,29 @@ module Hampusn
           get do
             authenticate!
 
-            messages = Message.where(user_id: @api_user.id).order(created_at: :desc).limit(api_params[:count])
+            if api_params[:meta]
+              conditions = {
+                message_metas: {},
+                messages: {
+                  user_id: @api_user.id
+                }
+              }
+
+              # This will probably not work since we want an 
+              # OR operator between each condition.
+              # A single meta works though!
+              # 
+              # ...Should probably be fixed later.
+              api_params[:meta].each do |key, value|
+                conditions[:message_metas][:key] = key
+                conditions[:message_metas][:value] = value
+              end
+
+              messages = Message.joins(:message_metas).where(conditions).order(created_at: :desc).limit(api_params[:count])
+            else
+              messages = Message.where(user_id: @api_user.id).order(created_at: :desc).limit(api_params[:count])
+            end
+
 
             present messages, with: Entities::Message
           end
