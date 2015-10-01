@@ -16,3 +16,5 @@ gem 'puma'
 
 gem 'foreman'
 gem 'dotenv'
+
+gem 'haml'
