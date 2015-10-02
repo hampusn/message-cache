@@ -36,7 +36,7 @@ module Hampusn
               if allowed_normalizer? normalizer_name
                 params[:meta][:normalizer] = normalizer_name
               else
-                params[:meta] ||= {}
+                params[:meta] = {} unless params[:meta].is_a?(Hash)
                 params[:meta][:normalizer] = 'generic'
               end
             end
