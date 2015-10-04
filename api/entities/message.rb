@@ -10,7 +10,10 @@ module Hampusn
         class Message < Grape::Entity
           expose :id
           expose :message
-          expose :message_metas, as: :meta, using: Entities::MessageMeta
+          expose :message_metas, as: :meta, using: Entities::MessageMeta, if: lambda { |instance, options|
+            !!options[:with_meta]
+          }
+
           expose :user, using: Entities::User
           expose :created_at
         end
