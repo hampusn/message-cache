@@ -22,15 +22,15 @@ module Hampusn
           def self.normalize(p)
             p[:message] = p[:text]
             
-            p[:meta] = {
-              team_id:      p[:team_id],
-              team_domain:  p[:team_domain],
-              channel_id:   p[:channel_id],
-              channel_name: p[:channel_name],
-              user_id:      p[:user_id],
-              user_name:    p[:user_name],
-              trigger_word: p[:trigger_word]
-            }
+            meta_keys = ['team_id', 'team_domain', 'channel_id', 'channel_name', 'user_id', 'user_name', 'trigger_word']
+
+            meta = {}
+
+            meta_keys.each do |meta_key|
+              meta[meta_key] = p[meta_key] unless p[meta_key].nil?
+            end
+
+            p[:meta] = meta
 
             p
           end
