@@ -47,6 +47,7 @@ module Hampusn
             optional :count, type: Integer, default: 10, values: 1..20
             optional :meta, type: Hash
             optional :with_meta, type: Boolean, default: true
+            optional :with_user, type: Boolean, default: false
           end
           get do
             authenticate!
@@ -75,7 +76,7 @@ module Hampusn
             end
 
 
-            present messages, with: Entities::Message, with_meta: api_params[:with_meta]
+            present messages, with: Entities::Message, with_meta: api_params[:with_meta], with_user: api_params[:with_user]
           end
 
           desc "Create a new message."
