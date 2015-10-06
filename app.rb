@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'dotenv'
+require 'haml'
 
 Dotenv.load
 
@@ -15,7 +16,8 @@ module Hampusn
       use Hampusn::MessageCache::Controllers::UserController
 
       get "/" do
-        "MessageCache"
+        @title = "MessageCache"
+        haml :index
       end
 
     end
