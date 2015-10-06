@@ -1,0 +1,13 @@
+{
+  "name": "hampusn-message-cache",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hampusn/message-cache.git"
+  },
+  "author": "Hampus Nordin <nordin.hampus@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/hampusn/message-cache/issues"
+  },
+  "homepage": "https://github.com/hampusn/message-cache#readme"
+}
