@@ -14,6 +14,7 @@ module Hampusn
     class App < Sinatra::Base
 
       use Hampusn::MessageCache::Controllers::UserController
+      use Hampusn::MessageCache::Controllers::RequestController
 
       get "/" do
         @title = "MessageCache"
