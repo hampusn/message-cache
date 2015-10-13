@@ -1,0 +1,25 @@
+.promo-section
+  %h1.promo-heading Message Cache
+  %p.promo-message [...]
+
+  .register-form
+    %form{action: '/user/register', method: 'POST'}
+      .form-item
+        %label.form-item__label{for: 'email'} Email
+        %input#email.form-item__field{type: 'email', name: 'email', value: @email}
+
+      .form-item
+        %label.form-item__label{for: 'registration-key'} Registration key
+        %input#registration-key.form-item__field{type: 'text', name: 'registration_key', value: @registration_key}
+
+      .form-item
+        %label.form-item__label{for: 'username'} Username
+        %input#username.form-item__field{type: 'text', name: 'username'}
+
+      .form-item
+        %label.form-item__label{for: 'password'} Password
+        %input#password.form-item__field{type: 'password', name: 'password'}
+
+      .form-submit
+        %button.button.button-submit Request account
+  

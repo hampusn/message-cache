@@ -5,7 +5,7 @@ include Hampusn::MessageCache::Models
 module Hampusn
   module MessageCache
     module Controllers
-      class UserController < Sinatra::Base
+      class UserController < Hampusn::MessageCache::Base
 
         helpers Hampusn::MessageCache::Helpers::UserHelpers
 
@@ -15,7 +15,10 @@ module Hampusn
 
         get '/user/register' do
           # Register view with form
-          "Register"
+          @email = params[:email]
+          @registration_key = params[:key]
+
+          haml :register
         end
 
         post '/user/register' do

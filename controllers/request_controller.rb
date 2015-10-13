@@ -7,7 +7,7 @@ include Hampusn::MessageCache::Models
 module Hampusn
   module MessageCache
     module Controllers
-      class RequestController < Sinatra::Base
+      class RequestController < Hampusn::MessageCache::Base
 
         post '/request' do
           reg_key = SecureRandom.hex
