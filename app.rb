@@ -5,6 +5,7 @@ require 'haml'
 
 Dotenv.load
 
+# base.rb contains a subclass of Sinatra::Base
 require './base'
 
 Dir.glob("models/*.rb").each { |r| require_relative r }
@@ -13,8 +14,7 @@ Dir.glob("controllers/*.rb").each { |r| require_relative r }
 
 module Hampusn
   module MessageCache
-    class App < Sinatra::Base
-      set :root, File.dirname(__FILE__)
+    class App < Hampusn::MessageCache::Base
 
       use Hampusn::MessageCache::Controllers::UserController
       use Hampusn::MessageCache::Controllers::RequestController
