@@ -1,0 +1,19 @@
+/*!
+ * @file
+ * @group layout
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ * @partial layout/_structure.scss
+ * 
+ * Contains overall structure.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic structuring
+ */
+
+/*
+ * 2. Base
+ ***************/
+
+.container {
+	@include outer-container;
+}

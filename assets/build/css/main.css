@@ -4,7 +4,7 @@
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  * 
  * Version: 0.0.0
- * Latest built: Thu Oct 08 2015 13:10:56 GMT+0200 (CEST)
+ * Latest built: Thu Oct 15 2015 07:27:37 GMT+0200 (CEST)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -331,6 +331,34 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+/*!
+ * @file
+ * @group layout
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ * @partial layout/_structure.scss
+ * 
+ * Contains overall structure.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic structuring
+ */
+/*
+ * 2. Base
+ ***************/
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+/*!
+ * @file
+ * @group modules
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ */
 /*!
  * @file
  * @group modules
