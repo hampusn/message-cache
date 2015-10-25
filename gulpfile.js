@@ -2,7 +2,7 @@
  * Gulpfile for hampusn-message-cache
  */
 
-var assetsDirs = ['./assets'];
+var assetsDirs = ['./public/assets'];
 
 var project = require('./package.json'),
     gulp = require('gulp'),
