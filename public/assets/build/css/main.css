@@ -4,7 +4,7 @@
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  * 
  * Version: 0.0.0
- * Latest built: Sun Oct 25 2015 17:14:42 GMT+0100 (CET)
+ * Latest built: Mon Oct 26 2015 07:43:09 GMT+0100 (CET)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -325,12 +325,6 @@ table {
 td, th {
   padding: 0; }
 
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 /*!
  * @file
  * @group layout
@@ -345,14 +339,11 @@ html {
 /*
  * 2. Base
  ***************/
-.container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto; }
-  .container::after {
-    clear: both;
-    content: "";
-    display: table; }
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
 
 /*!
  * @file

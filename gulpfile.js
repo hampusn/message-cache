@@ -7,7 +7,6 @@ var assetsDirs = ['./public/assets'];
 var project = require('./package.json'),
     gulp = require('gulp'),
     sass = require('gulp-sass'),
-    neat = require('node-neat'),
     uglify = require('gulp-uglify'),
     watch = require('gulp-watch'),
     concat = require('gulp-concat'),
@@ -50,7 +49,7 @@ var stylesTask = function (path) {
 
   gulp.src(srcs)
     .pipe(sass({
-      'includePaths': ['styles'].concat(neat.includePaths, normalize.includePaths),
+      'includePaths': ['styles'].concat(normalize.includePaths),
       'errLogToConsole': false,
       'onError': stylesLogger
     }))

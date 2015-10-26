@@ -14,6 +14,12 @@
  * 2. Base
  ***************/
 
+html {
+  box-sizing: border-box;
+}
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
 .container {
-	@include outer-container;
 }
