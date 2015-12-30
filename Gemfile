@@ -4,6 +4,8 @@ ruby '2.2.3'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
+gem 'sinatra-formkeeper'
+gem 'sinatra-flash'
 
 gem 'grape'
 gem 'grape-entity'
