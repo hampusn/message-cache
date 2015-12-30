@@ -10,14 +10,14 @@ module Hampusn
       class RequestController < Hampusn::MessageCache::Base
 
         post '/request' do
-          reg_key = SecureRandom.hex
+          unless User.exists?(email: params[:email])
+            req = Request.new
 
-          req = Request.new
+            req.email = params[:email]
+            req.registration_key = SecureRandom.hex
 
-          req.email = params[:email]
-          req.registration_key = reg_key
-
-          req.save
+            req.save
+          end
 
           redirect '/'
         end
