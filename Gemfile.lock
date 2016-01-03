@@ -88,6 +88,8 @@ GEM
       hpricot
       rack
       sinatra
+    sinatra-partial (0.4.0)
+      sinatra
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
@@ -117,6 +119,7 @@ DEPENDENCIES
   sinatra-contrib
   sinatra-flash
   sinatra-formkeeper
+  sinatra-partial
 
 BUNDLED WITH
    1.10.6

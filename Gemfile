@@ -6,6 +6,7 @@ gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'sinatra-formkeeper'
 gem 'sinatra-flash'
+gem 'sinatra-partial'
 
 gem 'grape'
 gem 'grape-entity'
