@@ -19,6 +19,7 @@
 
       .site-main
         .container
+          =partial :'partials/messages', locals: { flash: flash }
           =yield
 
       .site-footer

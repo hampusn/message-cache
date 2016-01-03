@@ -15,7 +15,7 @@ module Hampusn
 
         get '/user/register' do
           # Register view with form
-          @email = params[:email]
+          @email            = params[:email]
           @registration_key = params[:key]
 
           haml :register
@@ -39,10 +39,14 @@ module Hampusn
             user_saved = user.save
 
             if user_saved
+              flash[:success] = "User registered successfully."
+
               request.destroy
               redirect '/'
             end
           end
+
+          flash[:error] = "User registration failed."
 
           redirect '/user/register'
         end

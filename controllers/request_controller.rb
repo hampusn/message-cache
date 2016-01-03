@@ -19,6 +19,8 @@ module Hampusn
             req.save
           end
 
+          flash[:notice] = "Request recived."
+
           redirect '/'
         end
 
