@@ -1,0 +1,18 @@
+/*!
+ * @file
+ * @group modules
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+body {
+  background: #f5f5f5;
+  font-family: 'Lato', sans-serif;
+}

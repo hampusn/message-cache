@@ -2,17 +2,21 @@
  * @file
  * @group hampusn-message-cache
  * @author Hampus Nordin <nordin.hampus@gmail.com>
- * 
+ *
  * Version: {{version}}
  * Latest built: {{timestamp}}
  */
 
 @import "normalize";
 
-// Layout partials contains generic rules for the structure 
+// Layout partials contains generic rules for the structure
 // such as the grids/columns.
 @import "layout/structure";
+@import "layout/site-header";
+@import "layout/site-content";
+@import "layout/site-footer";
 
 // Modules are reusable parts.
+@import "modules/base";
 @import "modules/button";
 @import "modules/form";
