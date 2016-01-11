@@ -1,13 +1,10 @@
-.promo-section
-  %h1.promo-heading Message Cache
-  %p.promo-message [...]
 
-  .form.register-form
-    %form{action: '/request', method: 'POST'}
-      .form-group.form-group--inline
-        .form-item
-          %label.form-label.form-label--hidden{for: 'email'} Email
-          %input#email.form-field{type: 'email', name: 'email', placeholder: 'Email'}
+.form.register-form
+  %form{action: '/request', method: 'POST'}
+    .form-group.form-group--inline
+      .form-item
+        %label.form-label.form-label--hidden{for: 'email'} Email
+        %input#email.form-field{type: 'email', name: 'email', placeholder: 'Email'}
 
-        .form-item
-          %button.button.button-submit Request account
+      .form-item
+        %button.button.button-submit Request account

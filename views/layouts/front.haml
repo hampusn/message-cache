@@ -21,8 +21,13 @@
             %a{href: '/'} Message Cache
 
       .site-content
+        .hero-section
+          .hero-content
+            %h1.hero-heading Message Cache
+            %p.hero-message Message cache message cache message cache message cache message cache.
+
         .container
-          =partial :'partials/messages', locals: {flash: flash}
+          =partial :'partials/messages'
           =yield
 
       .site-footer

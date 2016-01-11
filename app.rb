@@ -21,7 +21,7 @@ module Hampusn
 
       get "/" do
         @title = "MessageCache"
-        haml :index
+        haml :index, layout: :'layouts/front'
       end
 
     end

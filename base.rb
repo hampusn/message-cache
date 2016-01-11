@@ -7,6 +7,7 @@ module Hampusn
     class Base < Sinatra::Base
       set :root, File.dirname(__FILE__)
       set :sessions, true
+      set :haml, :layout => :'layouts/default'
 
       register Sinatra::Flash
       register Sinatra::Partial
