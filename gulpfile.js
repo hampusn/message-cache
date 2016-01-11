@@ -12,7 +12,8 @@ var project = require('./package.json'),
     concat = require('gulp-concat'),
     replace = require('gulp-replace'),
     notifier = require('node-notifier'),
-    normalize = require('node-normalize-scss');
+    normalize = require('node-normalize-scss'),
+    bourbon = require('node-bourbon');
 
 
 /**
@@ -37,7 +38,7 @@ var stylesLogger = function (err) {
  * Gulp task for styles
  */
 var stylesTask = function (path) {
-  // Current time. Will be used to set timestamp on 
+  // Current time. Will be used to set timestamp on
   // compiled css.
   var now = new Date().toString();
 
@@ -49,7 +50,7 @@ var stylesTask = function (path) {
 
   gulp.src(srcs)
     .pipe(sass({
-      'includePaths': ['styles'].concat(normalize.includePaths),
+      'includePaths': ['styles'].concat(bourbon.includePaths, normalize.includePaths),
       'errLogToConsole': false,
       'onError': stylesLogger
     }))
@@ -84,7 +85,7 @@ var scriptsTask = function (path) {
   var now = new Date().toString();
 
   // Select all vendors, modules and also main.js lastly.
-  // The order is important since it's the order that they 
+  // The order is important since it's the order that they
   // will be put together in.
   var srcs = [
     path + '/src/js/vendors/*.js',
@@ -99,7 +100,7 @@ var scriptsTask = function (path) {
       'preserveComments': 'some'
     }))
     .on('error', scriptsLogger)
-    // Merge all selected files into new file: main.js 
+    // Merge all selected files into new file: main.js
     // and place it in assets build folder.
     .pipe(concat('main.js', { 'newLine': '\r\n\r\n' }))
     .pipe(replace('{{version}}', project.version))
