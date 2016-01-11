@@ -4,7 +4,7 @@
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  *
  * Version: 0.0.0
- * Latest built: Mon Jan 11 2016 22:57:27 GMT+0100 (CET)
+ * Latest built: Mon Jan 11 2016 23:15:46 GMT+0100 (CET)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -479,6 +479,38 @@ body {
   font-weight: 700;
   line-height: 1.2;
   padding: 0.5em 1em; }
+
+/*!
+ * @file
+ * @group modules
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ */
+.flash-messages {
+  font-size: 0.8em;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1em; }
+
+.flash-group {
+  border: 1px solid transparent;
+  border-radius: 2px;
+  margin: 0 0 0.2em;
+  padding: 0.8em 1em; }
+
+.flash-group--notice {
+  background: #BFD2E4;
+  border-color: #9bb9d5;
+  color: #386085; }
+
+.flash-group--success {
+  background: #D0EFBB;
+  border-color: #b3e592;
+  color: #579f25; }
+
+.flash-group--error {
+  background: #E4AFAF;
+  border-color: #d78989;
+  color: #822c2c; }
 
 /*!
  * @file

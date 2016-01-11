@@ -1,0 +1,38 @@
+/*!
+ * @file
+ * @group modules
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ */
+
+$color-flash-notice: #BFD2E4;
+$color-flash-success: #D0EFBB;
+$color-flash-error: #E4AFAF;
+
+.flash-messages {
+  font-size: 0.8em;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1em;
+}
+.flash-group {
+  border: 1px solid transparent;
+  border-radius: 2px;
+  margin: 0 0 0.2em;
+  padding: 0.8em 1em;
+}
+
+.flash-group--notice {
+  background: $color-flash-notice;
+  border-color: darken($color-flash-notice, 10%);
+  color: darken($color-flash-notice, 45%);
+}
+.flash-group--success {
+  background: $color-flash-success;
+  border-color: darken($color-flash-success, 10%);
+  color: darken($color-flash-success, 45%);
+}
+.flash-group--error {
+  background: $color-flash-error;
+  border-color: darken($color-flash-error, 10%);
+  color: darken($color-flash-error, 45%);
+}

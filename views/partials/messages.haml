@@ -1,5 +1,5 @@
 - if defined? flash && !flash.empty?
   .flash-messages
     - flash.each do | group, messages |
-      %p.flash{:class => "flash-group flash-group--#{group}"}
+      %p{:class => "flash-group flash-group--#{group}"}
         =messages
