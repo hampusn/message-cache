@@ -1,0 +1,25 @@
+/*!
+ * @file
+ * @group modules
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ */
+
+.hero-section {
+  background: #ccc;
+  box-shadow: inset 0px -20px 50px 0 rgba(0,0,0,0.1);
+  font-size: 1.5em;
+  padding: 2em 4em;
+  text-align: center;
+  margin-left: -3em;
+  margin-right: -3em;
+  overflow: hidden;
+
+  color: #222;
+  text-shadow: 1px 1px 15px rgba(0,0,0,0.1);
+}
+.hero-content {
+  margin: 0 auto;
+  max-width: rem(600);
+}
+.hero-heading {}
+.hero-message {}

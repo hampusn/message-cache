@@ -4,12 +4,12 @@
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  */
 
-.form {}
-
-
-.form-group {
-  margin-bottom: 1em;
+.form {
+  margin: 1em 0;
 }
+
+
+.form-group {}
 
 .form-group--inline {
   @include clearfix;
@@ -27,6 +27,7 @@
 .form-item {
   font-size: 1em;
   line-height: 1.2;
+  margin-bottom: 1em;
 }
 .form-label {}
 .form-field {

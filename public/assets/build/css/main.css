@@ -4,7 +4,7 @@
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  *
  * Version: 0.0.0
- * Latest built: Mon Jan 11 2016 20:51:07 GMT+0100 (CET)
+ * Latest built: Mon Jan 11 2016 22:57:27 GMT+0100 (CET)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -405,7 +405,6 @@ th {
 .site-header {
   background: #333;
   color: #eee;
-  margin-bottom: 4em;
   padding-bottom: 1.5em;
   padding-top: 1.5em; }
 
@@ -486,8 +485,8 @@ body {
  * @group modules
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  */
-.form-group {
-  margin-bottom: 1em; }
+.form {
+  margin: 1em 0; }
 
 .form-group--inline::after {
   clear: both;
@@ -502,7 +501,8 @@ body {
 
 .form-item {
   font-size: 1em;
-  line-height: 1.2; }
+  line-height: 1.2;
+  margin-bottom: 1em; }
 
 .form-field {
   border: 0;
@@ -512,3 +512,24 @@ body {
 
 .form-label--hidden {
   display: none; }
+
+/*!
+ * @file
+ * @group modules
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ */
+.hero-section {
+  background: #ccc;
+  box-shadow: inset 0px -20px 50px 0 rgba(0, 0, 0, 0.1);
+  font-size: 1.5em;
+  padding: 2em 4em;
+  text-align: center;
+  margin-left: -3em;
+  margin-right: -3em;
+  overflow: hidden;
+  color: #222;
+  text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1); }
+
+.hero-content {
+  margin: 0 auto;
+  max-width: 37.5rem; }
