@@ -4,7 +4,7 @@
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  *
  * Version: 0.0.0
- * Latest built: Mon Jan 11 2016 18:38:30 GMT+0100 (CET)
+ * Latest built: Mon Jan 11 2016 20:51:07 GMT+0100 (CET)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -478,7 +478,7 @@ body {
   display: inline-block;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
   padding: 0.5em 1em; }
 
 /*!
@@ -486,3 +486,29 @@ body {
  * @group modules
  * @author Hampus Nordin <nordin.hampus@gmail.com>
  */
+.form-group {
+  margin-bottom: 1em; }
+
+.form-group--inline::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.form-group--inline .form-item {
+  float: left;
+  margin-right: 0.5em; }
+  .form-group--inline .form-item:last-child {
+    margin-right: 0; }
+
+.form-item {
+  font-size: 1em;
+  line-height: 1.2; }
+
+.form-field {
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  border-radius: 2px;
+  padding: 0.5em 1em; }
+
+.form-label--hidden {
+  display: none; }

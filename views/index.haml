@@ -4,9 +4,10 @@
 
   .form.register-form
     %form{action: '/request', method: 'POST'}
-      .form-item
-        %label.form-item__label{for: 'email'} Email
-        %input#email.form-item__field{type: 'email', name: 'email'}
+      .form-group.form-group--inline
+        .form-item
+          %label.form-label.form-label--hidden{for: 'email'} Email
+          %input#email.form-field{type: 'email', name: 'email', placeholder: 'Email'}
 
-      .form-submit
-        %button.button.button-submit Request account
+        .form-item
+          %button.button.button-submit Request account

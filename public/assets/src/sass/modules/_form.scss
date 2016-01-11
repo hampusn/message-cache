@@ -6,7 +6,37 @@
 
 .form {}
 
-.form-item {}
-.form-item__label {}
-.form-item__field {}
-.form-item__tooltip {}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-group--inline {
+  @include clearfix;
+
+  .form-item {
+    float: left;
+    margin-right: 0.5em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.form-item {
+  font-size: 1em;
+  line-height: 1.2;
+}
+.form-label {}
+.form-field {
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  border-radius: 2px;
+  padding: 0.5em 1em;
+}
+.form-tooltip {}
+
+.form-label--hidden {
+  display: none;
+}
