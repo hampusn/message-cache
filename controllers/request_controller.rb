@@ -24,6 +24,26 @@ module Hampusn
           redirect '/'
         end
 
+        post '/request/approve' do
+          request = Request.where(email: params[:email]).take
+
+          unless request.nil?
+            request.approved = true
+
+            request_saved = request.save
+
+            if request_saved
+              flash[:success] = "Request approved."
+
+              redirect '/'
+            end
+          end
+
+          flash[:error] = "Request failed."
+
+          redirect '/'
+        end
+
       end
     end
   end
