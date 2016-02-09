@@ -25,6 +25,8 @@ module Hampusn
         end
 
         post '/request/approve' do
+          protected!
+
           request = Request.where(email: params[:email]).take
 
           unless request.nil?
