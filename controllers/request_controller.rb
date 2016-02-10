@@ -24,8 +24,8 @@ module Hampusn
           redirect '/'
         end
 
-        post '/request/approve' do
-          protected!
+        post '/request/approve', use_basic_auth: true do
+          # protected!
 
           request = Request.where(email: params[:email]).take
 
