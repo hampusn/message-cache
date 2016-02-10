@@ -1,0 +1,16 @@
+.promo-section
+  %h1.promo-heading Login
+  %p.promo-message Please login with your username and password.
+
+  .register-form
+    %form{action: '/user/login', method: 'POST'}
+      .form-item
+        %label.form-item__label{for: 'username'} Username
+        %input#username.form-item__field{type: 'text', name: 'username'}
+
+      .form-item
+        %label.form-item__label{for: 'password'} Password
+        %input#password.form-item__field{type: 'password', name: 'password'}
+
+      .form-submit
+        %button.button.button-submit Login

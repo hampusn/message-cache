@@ -9,8 +9,52 @@ module Hampusn
 
         helpers Hampusn::MessageCache::Helpers::UserHelpers
 
+        get '/user', require_login_or_redirect_to: '/user/login' do
+          haml :user, locals: {username: @user.username, key: @user.key}
+        end
+
+        get '/user/login' do
+          haml :login
+        end
+
         post '/user/login' do
-          # Handle authentication
+          user = User.where(username: params[:username]).take
+
+          unless user.nil?
+            if password_hash_matches? params[:password], user.salt, user.password
+              session[:user_id] = user.id
+
+              flash[:success] = "Successfully logged in!"
+              redirect '/user'
+            end
+          end
+
+          flash[:error] = "Login failed."
+          redirect '/user/login'
+        end
+
+        get '/user/logout' do
+          session[:user_id] = nil
+          redirect '/'
+        end
+
+        post '/user/generate-key', require_login_or_redirect_to: '/user/login' do
+          unless @user.nil?
+            @user.key = SecureRandom.hex 10
+            user_saved = @user.save
+
+            if user_saved
+              flash[:success] = "Key generated."
+              redirect '/user'
+            end
+          end
+
+          flash[:error] = "Key could not be generated."
+          redirect '/user'
+        end
+
+        post '/user/reset-password' do
+          # ...
         end
 
         get '/user/register' do
@@ -49,10 +93,6 @@ module Hampusn
           flash[:error] = "User registration failed."
 
           redirect '/user/register'
-        end
-
-        post '/user/reset-password' do
-          # ...
         end
 
       end

@@ -1,0 +1,16 @@
+.promo-section
+  %h1.promo-heading Account
+  %p.promo-message
+    Account settings for user
+    %strong #{username}
+
+  %p ...
+
+  %p
+    Current key:
+    %strong #{key}
+
+  .form
+    %form{action: '/user/generate-key', method: 'POST'}
+      .form-submit
+        %button.button.button-submit Generate new key
