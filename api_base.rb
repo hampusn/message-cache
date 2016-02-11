@@ -7,12 +7,15 @@ Dir.glob("helpers/*.rb").each { |r| require_relative r }
 Dir.glob("api/*.rb").each { |r| require_relative r }
 Dir.glob("api/normalizers/*.rb").each { |r| require_relative r }
 Dir.glob("api/entities/*.rb").each { |r| require_relative r }
+Dir.glob("api/middlewares/*.rb").each { |r| require_relative r }
 
 module Hampusn
   module MessageCache
     class APIBase < Grape::API
-      
+
       helpers Hampusn::MessageCache::Helpers::UserHelpers
+
+      use Hampusn::MessageCache::API::Middlewares::CustomStatusCodeMiddleware
 
       http_basic do |username, key|
         user = User.find_by username: username
