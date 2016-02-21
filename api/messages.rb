@@ -18,11 +18,11 @@ module Hampusn
         resource :messages do
           before do
             if route.route_method == 'POST' && route.route_path == '/messages(.json)'
-              # Normalize params from different sources so they can be inserted into 
+              # Normalize params from different sources so they can be inserted into
               # messages table.
-              # 
+              #
               # See Hampusn::MessageCache::API::Normalizers::GenericNormalizer for an example.
-              
+
               normalizer_name = params[:normalizer]
               normalizer = get_normalizer(normalizer_name)
 
@@ -31,7 +31,7 @@ module Hampusn
               p = params
               params = normalizer.normalize(p)
 
-              # Add the normalizer to the meta hash so it will later 
+              # Add the normalizer to the meta hash so it will later
               # be saved as a MessageMeta.
               if allowed_normalizer? normalizer_name
                 params[:meta][:normalizer] = normalizer_name
@@ -41,7 +41,7 @@ module Hampusn
               end
             end
           end
-          
+
           desc "Return a list messages."
           params do
             optional :count, type: Integer, default: 10, values: 1..20
@@ -60,10 +60,10 @@ module Hampusn
                 }
               }
 
-              # This will probably not work since we want an 
+              # This will probably not work since we want an
               # OR operator between each condition.
               # A single meta works though!
-              # 
+              #
               # ...Should probably be fixed later.
               api_params[:meta].each do |key, value|
                 conditions[:message_metas][:key] = key
@@ -101,6 +101,20 @@ module Hampusn
             end
 
             present message, with: Entities::Message
+          end
+
+          desc "Delete a message."
+          params do
+            requires :id, type: String, desc: 'Message ID.'
+          end
+          delete ':id' do
+            authenticate!
+
+            begin
+              @api_user.messages.find(params[:id]).destroy
+            rescue ActiveRecord::RecordNotFound => e
+              error!('No record found matching criterias.', 404)
+            end
           end
 
         end
